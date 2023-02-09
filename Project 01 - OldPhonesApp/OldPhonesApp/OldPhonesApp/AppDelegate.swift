@@ -16,8 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemPink
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        let navigationController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = navigationController
+        setUpNavigationBar()
         return true
+    }
+    
+    func setUpNavigationBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.backgroundColor = UIColor.clear
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().shadowImage = UIImage()
+       
     }
 
 
